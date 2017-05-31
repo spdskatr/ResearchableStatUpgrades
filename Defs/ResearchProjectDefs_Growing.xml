@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="uf-8"?>
+<Growing>
+    <!--Growing: Occupies y-index 3-->
+	<ResearchProjectDef>
+		<defName>AdvGrowingI</defName>
+		<label>Efficient Farming I</label>
+		<description>Plant work speed increased by 20%.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+            <li>ProductivityI</li>
+			<li>Electricity</li>
+			<li>Smithing</li>
+		</prerequisites>
+        <tab>StatUpgrades</tab>
+		<researchViewX>1</researchViewX>
+		<researchViewY>3</researchViewY>
+	</ResearchProjectDef>
+	<ResearchProjectDef>
+		<defName>AdvGrowingII</defName>
+		<label>Efficient Farming II</label>
+		<description>Plant work speed increased by a further 30%.</description>
+		<baseCost>2000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>AdvGrowingI</li>
+			<li>MicroelectronicsBasics</li>
+		</prerequisites>
+        <tab>StatUpgrades</tab>
+		<researchViewX>3</researchViewX>
+		<researchViewY>3</researchViewY>
+	</ResearchProjectDef>
+	<ResearchProjectDef>
+		<defName>AdvGrowingIII</defName>
+		<label>Efficient Farming III</label>
+		<description>Plant work speed increased by a further 30%, and harvest yield chance increased by 10%.</description>
+		<baseCost>2500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<prerequisites>
+			<li>AdvGrowingII</li>
+            <li>MultiAnalyzer</li>
+		</prerequisites>
+        <tab>StatUpgrades</tab>
+		<researchViewX>5</researchViewX>
+		<researchViewY>3</researchViewY>
+	</ResearchProjectDef>
+	<ResearchProjectDef>
+		<defName>AdvGrowingIV</defName>
+		<label>Efficient Farming IV</label>
+		<description>Plant work speed increased by a further 50%, and harvest yield chance increased by a further 15%.</description>
+		<baseCost>2500</baseCost>
+		<techLevel>Spacer</techLevel>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+		<prerequisites>
+			<li>AdvGrowingIII</li>
+			<li>ShipBasics</li>
+		</prerequisites>
+        <tab>StatUpgrades</tab>
+		<researchViewX>7</researchViewX>
+		<researchViewY>3</researchViewY>
+	</ResearchProjectDef>
+</Growing>

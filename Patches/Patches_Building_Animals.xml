@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/StatDef[defName="AnimalGatherSpeed"]</xpath>
+        <value>
+            <parts>
+                <li Class="ResearchableStatUpgrades.StatPart_ResearchDependent">
+                    <researchFactors>
+                        <li>
+                            <def>AnimalsI</def>
+                            <factor>1.2</factor>
+                        </li>
+                        <li>
+                            <def>AnimalsII</def>
+                            <factor>1.2</factor>
+                        </li>
+                    </researchFactors>
+                </li>
+            </parts>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/StatDef[defName="AnimalGatherYield"]</xpath>
+        <value>
+            <parts>
+                <li Class="ResearchableStatUpgrades.StatPart_ResearchDependent">
+                    <researchFactors>
+                        <li>
+                            <def>AnimalsI</def>
+                            <factor>1.1</factor>
+                        </li>
+                        <li>
+                            <def>AnimalsII</def>
+                            <factor>1.15</factor>
+                        </li>
+                    </researchFactors>
+                </li>
+            </parts>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>/Defs/StatDef[defName="AnimalGatherYield"]/maxValue</xpath>
+        <value><maxValue>9999999</maxValue></value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/StatDef[defName="ConstructionSpeed"]</xpath>
+        <value>
+            <parts>
+                <li Class="ResearchableStatUpgrades.StatPart_ResearchDependent">
+                    <researchFactors>
+                        <li>
+                            <def>ConstructionI</def>
+                            <factor>1.2</factor>
+                        </li>
+                        <li>
+                            <def>ConstructionII</def>
+                            <factor>1.25</factor>
+                        </li>
+                    </researchFactors>
+                </li>
+            </parts>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/StatDef[defName="ConstructSuccessChance"]</xpath>
+        <value>
+            <parts>
+                <li Class="ResearchableStatUpgrades.StatPart_ResearchDependent">
+                    <researchFactors>
+                        <li>
+                            <def>ConstructionII</def>
+                            <factor>1.15</factor>
+                        </li>
+                    </researchFactors>
+                </li>
+            </parts>
+        </value>
+    </Operation>
+</Patch>

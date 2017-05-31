@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!--
+    Mining (Tiered 4)
+    Growing (Tiered 4)
+    Animal husbandry (Tiered 2)
+    Building (Tiered 2)
+	Medical (Single)
+	Global work speed (Tiered after every tier?)
+    -->
+    <ResearchTabDef>
+        <defName>StatUpgrades</defName>
+        <label>stat upgrades</label>
+    </ResearchTabDef>
+    <!--Mining: Occupies X value 0-->
+	<ResearchProjectDef>
+		<defName>AdvMiningI</defName>
+		<label>Pneumatic Picks</label>
+		<description>Miner's picks are 20% more effective. Called Pneumatic Picks for the sake of nostalgia.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+            <li>ProductivityI</li>
+			<li>Electricity</li>
+			<li>Smithing</li>
+		</prerequisites>
+        <tab>StatUpgrades</tab>
+		<researchViewX>1</researchViewX>
+		<researchViewY>2</researchViewY>
+	</ResearchProjectDef>
+	<ResearchProjectDef>
+		<defName>AdvMiningII</defName>
+		<label>Advanced Mining II</label>
+		<description>Further improvements in mining means miner's picks are a further 30% more effective.</description>
+		<baseCost>2000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>AdvMiningI</li>
+            <li>MicroelectronicsBasics</li>
+		</prerequisites>
+        <tab>StatUpgrades</tab>
+		<researchViewX>3</researchViewX>
+		<researchViewY>2</researchViewY>
+	</ResearchProjectDef>
+	<ResearchProjectDef>
+		<defName>AdvMiningIII</defName>
+		<label>Advanced Mining III</label>
+		<description>Improvements in electronics means miner's picks are a further 30% more effective, and yield 25% more materials per mine.</description>
+		<baseCost>2500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>AdvMiningII</li>
+            <li>MultiAnalyzer</li>
+		</prerequisites>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <tab>StatUpgrades</tab>
+		<researchViewX>5</researchViewX>
+		<researchViewY>2</researchViewY>
+	</ResearchProjectDef>
+	<ResearchProjectDef>
+		<defName>AdvMiningIV</defName>
+		<label>Advanced Mining IV</label>
+		<description>Further improvements in precision mining means miner's picks are a further 50% more effective, and yield a further 35% more materials per mine.</description>
+		<baseCost>2500</baseCost>
+		<techLevel>Spacer</techLevel>
+		<prerequisites>
+			<li>AdvMiningIII</li>
+            <li>ShipBasics</li>
+		</prerequisites>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+        <tab>StatUpgrades</tab>
+		<researchViewX>7</researchViewX>
+		<researchViewY>2</researchViewY>
+	</ResearchProjectDef>
+</Defs>

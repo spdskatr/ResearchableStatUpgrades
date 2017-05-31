@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Cooking>
+	<ResearchProjectDef>
+		<defName>NutrientResynthesis</defName>
+		<label>Nutrient Resynthesis</label>
+		<description>Nutrient paste dispensers consume 33% less food per meal produced. The old research was 10%, but the change would be too insignificant.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+        <tab>StatUpgrades</tab>
+		<researchViewX>0</researchViewX>
+		<researchViewY>5</researchViewY>
+        <researchMods>
+            <li Class="ResearchableStatUpgrades.ResearchMod_EditBuildingProperties">
+                <def>NutrientPasteDispenser</def>
+                <fieldName>nutritionCostPerDispense</fieldName>
+                <value>0.20</value>
+            </li>
+        </researchMods>
+        <prerequisites>
+            <li>NutrientPaste</li>
+        </prerequisites>
+	</ResearchProjectDef>
+	<ResearchProjectDef>
+		<defName>GunTurretCooling</defName>
+		<label>Gun Turret Cooling</label>
+		<description>Gun turrets fire four shots in a burst instead of three.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+        <tab>StatUpgrades</tab>
+		<researchViewX>0</researchViewX>
+		<researchViewY>0</researchViewY>
+        <researchMods>
+            <li Class="ResearchableStatUpgrades.ResearchMod_EditVerbProperties">
+                <def>Gun_TurretImprovised</def>
+                <index>0</index>
+                <fieldName>burstShotCount</fieldName>
+                <value>4</value>
+            </li>
+        </researchMods>
+        <prerequisites>
+            <li>GunTurrets</li>
+        </prerequisites>
+	</ResearchProjectDef>
+</Cooking>

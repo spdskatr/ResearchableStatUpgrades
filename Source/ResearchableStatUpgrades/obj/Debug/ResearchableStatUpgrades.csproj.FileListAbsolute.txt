@@ -1,0 +1,3 @@
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\[SS] ResearchableStatUpgrades\Assemblies\ResearchableStatUpgrades.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\[SS] ResearchableStatUpgrades\Source\ResearchableStatUpgrades\obj\Debug\ResearchableStatUpgrades.csprojResolveAssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\[SS] ResearchableStatUpgrades\Source\ResearchableStatUpgrades\obj\Debug\ResearchableStatUpgrades.dll

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Misc>
+	<ResearchProjectDef>
+		<defName>ProductivityI</defName>
+		<label>Productivity I</label>
+		<description>There are quite a few things a colony can do to improve their productivity. Improves global work speed by 10%.</description>
+		<baseCost>500</baseCost>
+		<techLevel>Industrial</techLevel>
+        <tab>StatUpgrades</tab>
+		<researchViewX>0</researchViewX>
+		<researchViewY>2.5</researchViewY>
+	</ResearchProjectDef>
+	<ResearchProjectDef>
+		<defName>ProductivityII</defName>
+		<label>Productivity II</label>
+		<description>Improves global work speed by a further 10%.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+        <tab>StatUpgrades</tab>
+        <prerequisites>
+            <li>ProductivityI</li>
+            <li>AdvMiningI</li>
+            <li>AdvGrowingI</li>
+        </prerequisites>
+		<researchViewX>2</researchViewX>
+		<researchViewY>2.5</researchViewY>
+	</ResearchProjectDef>
+	<ResearchProjectDef>
+		<defName>ProductivityIII</defName>
+		<label>Productivity III</label>
+		<description>Improves global work speed by a further 20%, and move speed by 10%.</description>
+		<baseCost>2000</baseCost>
+		<techLevel>Industrial</techLevel>
+        <tab>StatUpgrades</tab>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <prerequisites>
+            <li>ProductivityII</li>
+            <li>AdvMiningII</li>
+            <li>AdvGrowingII</li>
+        </prerequisites>
+		<researchViewX>4</researchViewX>
+		<researchViewY>2.5</researchViewY>
+	</ResearchProjectDef>
+	<ResearchProjectDef>
+		<defName>ProductivityIV</defName>
+		<label>Productivity IV</label>
+		<description>Improves global work speed by a further 20%, and move speed by 20%.</description>
+		<baseCost>2000</baseCost>
+		<techLevel>Spacer</techLevel>
+        <tab>StatUpgrades</tab>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+        <prerequisites>
+            <li>ProductivityIII</li>
+            <li>AdvMiningIII</li>
+            <li>AdvGrowingIII</li>
+        </prerequisites>
+		<researchViewX>6</researchViewX>
+		<researchViewY>2.5</researchViewY>
+	</ResearchProjectDef>
+	<ResearchProjectDef>
+		<defName>ProductivityV</defName>
+		<label>Productivity V</label>
+		<description>Improves global work speed by a further 30%, and move speed by 30%.</description>
+		<baseCost>4000</baseCost>
+		<techLevel>Spacer</techLevel>
+        <tab>StatUpgrades</tab>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+        <prerequisites>
+            <li>ProductivityIV</li>
+            <li>AdvMiningIV</li>
+            <li>AdvGrowingIV</li>
+        </prerequisites>
+		<researchViewX>8</researchViewX>
+		<researchViewY>2.5</researchViewY>
+	</ResearchProjectDef>
+	<ResearchProjectDef>
+		<defName>ProductivityRepeatable</defName>
+		<label>Productivity (repeatable)</label>
+		<description>Every time you research this, the global work speed factor will be improved by 5%, and move speed by 5%. This research is repeatable, and will increase in cost by 20% every time you finish it for balance. Number of times you have repeated this research: 0</description>
+		<baseCost>4000</baseCost>
+		<techLevel>Animal</techLevel>
+        <tab>StatUpgrades</tab>
+		<researchViewX>9</researchViewX>
+		<researchViewY>2.5</researchViewY>
+        <researchMods>
+            <li Class="ResearchableStatUpgrades.ResearchMod_Repeatable">
+				<def>ProductivityRepeatable</def>
+			</li>
+        </researchMods>
+        <prerequisites>
+            <li>ProductivityV</li>
+        </prerequisites>
+		<modExtensions>
+			<li Class="ResearchableStatUpgrades.ModExtension_CompoundBonus">
+				<factor>1.2</factor>
+			</li>
+		</modExtensions>
+	</ResearchProjectDef>
+</Misc>

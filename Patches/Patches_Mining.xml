@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/StatDef[defName = "MiningSpeed"]</xpath>
+        <value>
+            <parts>
+                <li Class="ResearchableStatUpgrades.StatPart_ResearchDependent">
+                    <researchFactors>
+                        <li>
+                            <def>AdvMiningI</def>
+                            <factor>1.2</factor>
+                        </li>
+                        <li>
+                            <def>AdvMiningII</def>
+                            <factor>1.3</factor>
+                        </li>
+                        <li>
+                            <def>AdvMiningIII</def>
+                            <factor>1.3</factor>
+                        </li>
+                        <li>
+                            <def>AdvMiningIV</def>
+                            <factor>1.5</factor>
+                        </li>
+                    </researchFactors>
+                </li>
+            </parts>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/StatDef[defName = "MiningYield"]</xpath>
+        <value>
+            <parts>
+                <li Class="ResearchableStatUpgrades.StatPart_ResearchDependent">
+                    <researchFactors>
+                        <li>
+                            <def>AdvMiningIII</def>
+                            <factor>1.25</factor>
+                        </li>
+                        <li>
+                            <def>AdvMiningIV</def>
+                            <factor>1.35</factor>
+                        </li>
+                    </researchFactors>
+                </li>
+            </parts>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>/Defs/StatDef[defName = "MiningYield"]/maxValue</xpath>
+        <value><maxValue>9999999</maxValue></value>
+    </Operation>
+</Patch>

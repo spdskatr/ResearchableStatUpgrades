@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Misc>
+	<ResearchProjectDef>
+		<defName>AnimalsI</defName>
+		<label>Animals I</label>
+		<description>Animal gather speed increased by 20%. Animal gather yield chance also increased by 10%.</description>
+		<baseCost>2000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>ProductivityII</li>
+            <li>MicroelectronicsBasics</li>
+		</prerequisites>
+        <tab>StatUpgrades</tab>
+		<researchViewX>3</researchViewX>
+		<researchViewY>4</researchViewY>
+	</ResearchProjectDef>
+	<ResearchProjectDef>
+		<defName>AnimalsII</defName>
+		<label>Animals II</label>
+		<description>Animal gather speed increased by another 20%. Animal gather yield chance also increased by another 15%.</description>
+		<baseCost>3000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>AnimalsI</li>
+            <li>MultiAnalyzer</li>
+		</prerequisites>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <tab>StatUpgrades</tab>
+		<researchViewX>5</researchViewX>
+		<researchViewY>4</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>ConstructionI</defName>
+		<label>Construction I</label>
+		<description>Increases construction speed by 20%.</description>
+		<baseCost>2000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>ProductivityII</li>
+            <li>MicroelectronicsBasics</li>
+		</prerequisites>
+        <tab>StatUpgrades</tab>
+		<researchViewX>3</researchViewX>
+		<researchViewY>1</researchViewY>
+	</ResearchProjectDef>
+	<ResearchProjectDef>
+		<defName>ConstructionII</defName>
+		<label>Construction II</label>
+		<description>Construction speed increased by another 25%, and 15% increase in construction success chance.</description>
+		<baseCost>3000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>ConstructionI</li>
+            <li>MultiAnalyzer</li>
+		</prerequisites>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <tab>StatUpgrades</tab>
+		<researchViewX>5</researchViewX>
+		<researchViewY>1</researchViewY>
+	</ResearchProjectDef>
+</Misc>
