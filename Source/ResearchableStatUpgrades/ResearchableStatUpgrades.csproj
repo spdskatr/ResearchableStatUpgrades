@@ -50,6 +50,7 @@
     <Compile Include="ModExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResearchMods.cs" />
+    <Compile Include="RSU_DefOf.cs" />
     <Compile Include="StatModifierDef.cs" />
     <Compile Include="StatPart_ResearchDependent.cs" />
     <Compile Include="WorldComponent_RepeatableResearchManager.cs" />

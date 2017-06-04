@@ -6,6 +6,10 @@
             <li Class="ResearchableStatUpgrades.StatPart_ResearchDependent">
                 <researchFactors>
                     <li>
+                        <def>CombatII</def>
+                        <factor>1.05</factor>
+                    </li>
+                    <li>
                         <def>ProductivityI</def>
                         <factor>1.1</factor>
                     </li>

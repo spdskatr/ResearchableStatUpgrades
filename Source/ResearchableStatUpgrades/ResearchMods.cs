@@ -7,6 +7,20 @@ using Verse;
 
 namespace ResearchableStatUpgrades
 {
+    public static class DefEditing
+    {
+        public const BindingFlags universal = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.GetField | BindingFlags.SetField | BindingFlags.GetProperty | BindingFlags.SetProperty;
+        public static void LoadAndEditField(FieldInfo fieldInfo, string value, object instance)
+        {
+            object val;
+            if (fieldInfo.FieldType.IsSubclassOf(typeof(Def)))
+                val = GenDefDatabase.GetDef(fieldInfo.FieldType, value);
+            else
+                val = ParseHelper.FromString(value, fieldInfo.FieldType);
+            fieldInfo.SetValue(instance, val);
+        }
+    }
+
     public class ResearchMod_SetResearchToZero : ResearchMod
     {
         /// <summary>
@@ -44,20 +58,19 @@ namespace ResearchableStatUpgrades
         public override void Apply()
         {
             var localVerbs = def.Verbs;
-            FieldInfo fieldInfo = typeof(VerbProperties).GetField(fieldName, universal);
-            fieldInfo.SetValue(def.Verbs[index], ParseHelper.FromString(value, fieldInfo.FieldType));
+            FieldInfo fieldInfo = typeof(VerbProperties).GetField(fieldName, DefEditing.universal);
+            DefEditing.LoadAndEditField(fieldInfo, value, def.Verbs[index]);
         }
     }
     public class ResearchMod_EditBuildingProperties : ResearchMod
     {
-        public const BindingFlags universal = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static;
         public ThingDef def;
         public string fieldName;
         public string value;
         public override void Apply()
         {
-            FieldInfo fieldInfo = typeof(BuildingProperties).GetField(fieldName, universal);
-            fieldInfo.SetValue(def.building, ParseHelper.FromString(value, fieldInfo.FieldType));
+            FieldInfo fieldInfo = typeof(BuildingProperties).GetField(fieldName, DefEditing.universal);
+            DefEditing.LoadAndEditField(fieldInfo, value, def.building);
         }
     }
     public class ResearchMod_EditDef : ResearchMod
@@ -67,10 +80,21 @@ namespace ResearchableStatUpgrades
         public string value;
         public override void Apply()
         {
-            FieldInfo fieldInfo = def.GetType().GetFields(ResearchMod_EditBuildingProperties.universal).ToList().Find(field => field.Name == fieldName);
+            FieldInfo fieldInfo = def.GetType().GetFields(DefEditing.universal).ToList().Find(field => field.Name == fieldName);
             if (fieldInfo == null)
                 Log.Error(string.Format("Cannot find field {0} in Def {1}", fieldName, def.defName));
             fieldInfo.SetValue(def, ParseHelper.FromString(value, fieldInfo.FieldType));
+        }
+    }
+    public class ResearchMod_EditIngestibleProperties : ResearchMod
+    {
+        public ThingDef def;
+        public string fieldName;
+        public string value;
+        public override void Apply()
+        {
+            FieldInfo fieldInfo = typeof(IngestibleProperties).GetField(fieldName, DefEditing.universal);
+            DefEditing.LoadAndEditField(fieldInfo, value, def.ingestible);
         }
     }
 }

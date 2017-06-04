@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ThoughtDefPackage>
+  <ThoughtDef>
+    <defName>AteAwfulMealFlavored</defName>
+    <durationDays>0.5</durationDays>
+    <stackLimit>3</stackLimit>
+    <stages>
+      <li>
+        <label>ate awful meal (flavored)</label>
+        <description>I had to eat a disgusting meal. At least it's flavored, but I still can't overcome the texture.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+</ThoughtDefPackage>

@@ -20,6 +20,27 @@
             <li>NutrientPaste</li>
         </prerequisites>
 	</ResearchProjectDef>
+    <!--Nutrient flavoring: name from rageage001-->
+	<ResearchProjectDef>
+		<defName>NutrientFlavoring</defName>
+		<label>Nutrient Flavoring</label>
+		<description>Nutrient paste dispensers now produce artificial flavoring, reducing the mood debuff when eating it from -4 to -2.</description>
+		<baseCost>1500</baseCost>
+		<techLevel>Industrial</techLevel>
+        <tab>StatUpgrades</tab>
+		<researchViewX>1</researchViewX>
+		<researchViewY>5</researchViewY>
+        <researchMods>
+            <li Class="ResearchableStatUpgrades.ResearchMod_EditIngestibleProperties">
+                <def>MealNutrientPaste</def>
+                <fieldName>tasteThought</fieldName>
+                <value>AteAwfulMealFlavored</value>
+            </li>
+        </researchMods>
+        <prerequisites>
+            <li>NutrientResynthesis</li>
+        </prerequisites>
+	</ResearchProjectDef>
 	<ResearchProjectDef>
 		<defName>GunTurretCooling</defName>
 		<label>Gun Turret Cooling</label>

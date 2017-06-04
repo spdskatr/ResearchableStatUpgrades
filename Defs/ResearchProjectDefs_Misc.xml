@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Misc>
+	<!--Psychology: (Courtesy of KingSihv)-->
+	<ResearchProjectDef>
+		<defName>Psychology</defName>
+		<label>psychology</label>
+		<description>Understand what prisoners are feeling. Recruit chance increased by 15%.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+        <tab>StatUpgrades</tab>
+		<researchViewX>1</researchViewX>
+		<researchViewY>0</researchViewY>
+	</ResearchProjectDef>
+</Misc>
