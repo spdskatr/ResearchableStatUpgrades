@@ -83,8 +83,8 @@
 		<defName>ProductivityRepeatable</defName>
 		<label>Productivity (repeatable)</label>
 		<description>Every time you research this, the global work speed factor will be improved by 5%, and move speed by 5%. This research is repeatable, and will increase in cost by 20% every time you finish it for balance. Number of times you have repeated this research: 0</description>
-		<baseCost>4000</baseCost>
-		<techLevel>Animal</techLevel>
+		<baseCost>2000</baseCost>
+		<techLevel>Spacer</techLevel>
         <tab>StatUpgrades</tab>
 		<researchViewX>9</researchViewX>
 		<researchViewY>2.5</researchViewY>
