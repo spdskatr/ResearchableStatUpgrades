@@ -15,4 +15,19 @@
             </parts>
         </value>
     </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/StatDefs/StatDef[defName="MeatAmount"]/parts</xpath>
+        <value>
+                <li Class="ResearchableStatUpgrades.StatPart_ResearchDependent">
+                    <researchFactors>
+                        <li>
+                            <def>MeatCutCharts</def>
+                            <factor>1.25</factor>
+                            <applyToNonColonistFaction>true</applyToNonColonistFaction>
+                            <applyToNonHumanlike>true</applyToNonHumanlike>
+                        </li>
+                    </researchFactors>
+                </li>
+        </value>
+    </Operation>
 </Patch>

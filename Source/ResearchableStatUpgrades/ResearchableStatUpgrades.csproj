@@ -56,6 +56,7 @@
     <Compile Include="StatPart_ResearchDependent.cs" />
     <Compile Include="WorldComponent_DefEditingResearchManager.cs" />
     <Compile Include="WorldComponent_RepeatableResearchManager.cs" />
+    <Compile Include="WorldComponent_StackCountEditManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -44,7 +44,7 @@
 	<ResearchProjectDef>
 		<defName>GunTurretCooling</defName>
 		<label>Gun Turret Cooling</label>
-		<description>Gun turrets fire four shots in a burst instead of three.</description>
+		<description>Improvised gun turrets fire four shots in a burst instead of three.</description>
 		<baseCost>1000</baseCost>
 		<techLevel>Industrial</techLevel>
         <tab>StatUpgrades</tab>
@@ -60,6 +60,36 @@
         </researchMods>
         <prerequisites>
             <li>GunTurrets</li>
+        </prerequisites>
+	</ResearchProjectDef>
+
+    <!--Scanner Efficiency: Courtesy of KingSihv-->
+	<ResearchProjectDef>
+		<defName>ScannerEfficiency</defName>
+		<label>Scanner Efficiency</label>
+		<description>Long range mineral scanner takes half the amount of time (15 days) to detect a faraway resource. However, the range is consequently increased by half (45 tiles).</description>
+		<baseCost>3000</baseCost>
+		<techLevel>Spacer</techLevel>
+        <tab>StatUpgrades</tab>
+		<researchViewX>7</researchViewX>
+		<researchViewY>1</researchViewY>
+        <researchMods>
+            <li Class="ResearchableStatUpgrades.ResearchMod_EditCompProperties">
+                <def>LongRangeMineralScanner</def>
+                <type>CompProperties_LongRangeMineralScanner</type>
+                <fieldName>mtbDays</fieldName>
+                <value>15</value>
+            </li>
+            <li Class="ResearchableStatUpgrades.ResearchMod_EditCompProperties">
+                <def>LongRangeMineralScanner</def>
+                <type>CompProperties_LongRangeMineralScanner</type>
+                <fieldName>radius</fieldName>
+                <value>45</value>
+            </li>
+        </researchMods>
+        <prerequisites>
+            <li>ConstructionII</li>
+            <li>ShipBasics</li>
         </prerequisites>
 	</ResearchProjectDef>
 </Cooking>

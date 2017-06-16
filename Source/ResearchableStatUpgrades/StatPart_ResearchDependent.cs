@@ -22,23 +22,20 @@ namespace ResearchableStatUpgrades
 
         public override string ExplanationPart(StatRequest req)
         {
-            if (req.HasThing && req.Thing.Faction == Faction.OfPlayer)
-            {
-                float factorBase = 1f;
-                TransformValue(req, ref factorBase);
-                return "RSU_FactorFromResearch".Translate() + factorBase.ToStringPercent();
-            }
-            return string.Empty;
+            float factorBase = 1f;
+            TransformValue(req, ref factorBase);
+            string str = factorBase.ToStringPercent();
+            return str == "100%" ? string.Empty : "RSU_FactorFromResearch".Translate() + str;
         }
 
         public override void TransformValue(StatRequest req, ref float val)
         {
-            if (req.HasThing && req.Thing.def.race != null && req.Thing.def.race.Humanlike && req.Thing.Faction == Faction.OfPlayer)
+            if (req.HasThing && req.Thing.def.race != null)
             {
                 for (int i = 0; i < researchFactors.Count; i++)
                 {
                     var factor = researchFactors[i];
-                    if (factor.def.IsFinished)
+                    if (ShouldApplyFactorToRequest(req, factor))
                     {
                         val *= factor.factor;
                     }
@@ -46,18 +43,30 @@ namespace ResearchableStatUpgrades
                 for (int i = 0; i < repeatables.Count; i++)
                 {
                     var repeatable = repeatables[i];
-                    var rpts = Find.World.GetComponent<WorldComponent_RepeatableResearchManager>().GetFactorFor(repeatable.def);
-                    for (i = 0; i < rpts; i++)
+                    if (ShouldApplyFactorToRequest(req, repeatable))
                     {
-                        val *= repeatable.factor;
+                        var rpts = RSUUtil.RepeatableResearchManager.GetFactorFor(repeatable.def);
+                        for (i = 0; i < rpts; i++)
+                        {
+                            val *= repeatable.factor;
+                        }
                     }
                 }
             }
+        }
+
+        private static bool ShouldApplyFactorToRequest(StatRequest req, ResearchFactor factor)
+        {
+            return factor.def.IsFinished && 
+                (req.Thing.def.race.Humanlike || factor.applyToNonHumanlike) && 
+                (req.Thing.Faction == Faction.OfPlayer || factor.applyToNonColonistFaction);
         }
     }
     public class ResearchFactor
     {
         public ResearchProjectDef def;
-        public float factor;
+        public float factor = 1f;
+        public bool applyToNonColonistFaction = false;
+        public bool applyToNonHumanlike = false;
     }
 }

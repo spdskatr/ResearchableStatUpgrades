@@ -11,6 +11,23 @@ namespace ResearchableStatUpgrades
     {
         public abstract void ResolveCost(ref ResearchProjectDef def, int factor);
     }
+    public class ModExtension_StackCountFactor : DefModExtension
+    {
+        public float factor;
+        // Simplicity for code
+        public bool repeatable;
+
+        public void ApplyWorker(ResearchProjectDef def)
+        {
+            float f = factor;
+            if (repeatable)
+            {
+                int x = RSUUtil.RepeatableResearchManager.GetFactorFor(def);
+                f = Mathf.Pow(factor, x);
+            }
+            RSUUtil.StackCountEditManager.MultiplyFactorBy(f);
+        }
+    }
     /// <summary>
     /// Mathematically speaking, cost(x) = bonus * x + baseCost;
     /// </summary>

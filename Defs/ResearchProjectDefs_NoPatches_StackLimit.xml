@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StackLimit>
+	<ResearchProjectDef>
+		<defName>StackingI</defName>
+		<label>Stacking I</label>
+		<description>Learn how to sort and stack things properly, rather than dump it in a pile. This multiplies the stack limit globally (except corpses) by 1.5. Like all others, these upgrades stack.</description>
+		<baseCost>1500</baseCost>
+		<techLevel>Industrial</techLevel>
+        <tab>StatUpgrades</tab>
+		<researchViewX>1</researchViewX>
+		<researchViewY>1.5</researchViewY>
+        <researchMods>
+            <li Class="ResearchableStatUpgrades.ResearchMod_EditStackCounts" />
+        </researchMods>
+        <prerequisites>
+            <li>ProductivityI</li>
+        </prerequisites>
+		<modExtensions>
+			<li Class="ResearchableStatUpgrades.ModExtension_StackCountFactor">
+                <factor>1.5</factor>
+				<repeatable>false</repeatable>
+            </li>
+		</modExtensions>
+	</ResearchProjectDef>
+	<ResearchProjectDef>
+		<defName>StackingII</defName>
+		<label>Stacking II</label>
+		<description>Learn how to use special arrangements to be able to stack more items in a small space. This multiplies the stack limit globally (except corpses) by 2. Like all others, these upgrades stack.</description>
+		<baseCost>2250</baseCost>
+		<techLevel>Industrial</techLevel>
+        <tab>StatUpgrades</tab>
+		<researchViewX>3</researchViewX>
+		<researchViewY>1.5</researchViewY>
+        <researchMods>
+            <li Class="ResearchableStatUpgrades.ResearchMod_EditStackCounts" />
+        </researchMods>
+        <prerequisites>
+            <li>StackingI</li>
+            <li>ProductivityII</li>
+        </prerequisites>
+		<modExtensions>
+			<li Class="ResearchableStatUpgrades.ModExtension_StackCountFactor">
+                <factor>2</factor>
+				<repeatable>false</repeatable>
+            </li>
+		</modExtensions>
+	</ResearchProjectDef>
+	<ResearchProjectDef>
+		<defName>StackingIII</defName>
+		<label>Stacking III</label>
+		<description>Learn how to apply physics to be able to stack more items in a set space. This multiplies the stack limit globally (except corpses) by 3. Like all others, these upgrades stack.</description>
+		<baseCost>3500</baseCost>
+		<techLevel>Industrial</techLevel>
+        <tab>StatUpgrades</tab>
+		<researchViewX>5</researchViewX>
+		<researchViewY>1.5</researchViewY>
+        <researchMods>
+            <li Class="ResearchableStatUpgrades.ResearchMod_EditStackCounts" />
+        </researchMods>
+        <prerequisites>
+            <li>StackingII</li>
+            <li>ProductivityIII</li>
+        </prerequisites>
+		<modExtensions>
+			<li Class="ResearchableStatUpgrades.ModExtension_StackCountFactor">
+                <factor>3</factor>
+				<repeatable>false</repeatable>
+            </li>
+		</modExtensions>
+	</ResearchProjectDef>
+	<ResearchProjectDef>
+		<defName>StackingIV</defName>
+		<label>Stacking IV</label>
+		<description>Learn how to apply dimensional physics to be able to stack more items in a set space. This multiplies the stack limit globally (except corpses) by 4. Like all others, these upgrades stack.</description>
+		<baseCost>3500</baseCost>
+		<techLevel>Spacer</techLevel>
+        <tab>StatUpgrades</tab>
+		<researchViewX>7</researchViewX>
+		<researchViewY>1.5</researchViewY>
+        <researchMods>
+            <li Class="ResearchableStatUpgrades.ResearchMod_EditStackCounts" />
+        </researchMods>
+        <prerequisites>
+            <li>StackingIII</li>
+            <li>ProductivityIV</li>
+        </prerequisites>
+		<modExtensions>
+			<li Class="ResearchableStatUpgrades.ModExtension_StackCountFactor">
+                <factor>4</factor>
+				<repeatable>false</repeatable>
+            </li>
+		</modExtensions>
+	</ResearchProjectDef>
+	<ResearchProjectDef>
+		<defName>StackingRepeatable</defName>
+		<label>Stacking (repeatable)</label>
+		<description>Continue perfecting your spacetime dilation technology to hold more items in a stack. Repeatable research - it multiplies by 1.2 (stacking) every time, and increases cost by 20% (stacking). Repeat count: 0</description>
+		<baseCost>3000</baseCost>
+		<techLevel>Ultra</techLevel>
+        <tab>StatUpgrades</tab>
+		<researchViewX>9</researchViewX>
+		<researchViewY>1.5</researchViewY>
+        <researchMods>
+            <li Class="ResearchableStatUpgrades.ResearchMod_Repeatable">
+				<def>StackingRepeatable</def>
+			</li>
+            <li Class="ResearchableStatUpgrades.ResearchMod_EditStackCounts" />
+        </researchMods>
+        <prerequisites>
+            <li>StackingIV</li>
+            <li>ProductivityV</li>
+        </prerequisites>
+		<modExtensions>
+			<li Class="ResearchableStatUpgrades.ModExtension_CompoundBonus">
+				<factor>1.2</factor>
+			</li>
+			<li Class="ResearchableStatUpgrades.ModExtension_StackCountFactor">
+                <factor>1.2</factor>
+				<repeatable>true</repeatable>
+            </li>
+		</modExtensions>
+	</ResearchProjectDef>
+</StackLimit>

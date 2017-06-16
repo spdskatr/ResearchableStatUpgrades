@@ -1,4 +1,5 @@
 ﻿using RimWorld.Planet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -11,9 +12,12 @@ namespace ResearchableStatUpgrades
 
         public WorldComponent_RepeatableResearchManager(World world) : base(world)
         {
-            foreach (var d in DefDatabase<ResearchProjectDef>.AllDefs.Where(d => d.GetModExtension<ModExtension_ResearchScaleable>() != null))
+            foreach (var d in DefDatabase<ResearchProjectDef>.AllDefs)
             {
-                researchedFactor.Add(d, 0);
+                if (d.GetModExtension<ModExtension_ResearchScaleable>() != null)
+                {
+                    researchedFactor.Add(d, 0);
+                }
             }
         }
 

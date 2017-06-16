@@ -1,0 +1,104 @@
+﻿using RimWorld.Planet;
+using Verse;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using UnityEngine;
+using System.Reflection;
+
+namespace ResearchableStatUpgrades
+{
+    /// <summary>
+    /// A different research manager focused on one def, allowing dynamic stackable researches
+    /// </summary>
+    public class WorldComponent_StackCountEditManager : WorldComponent
+    {
+        static readonly Dictionary<ThingDef, int> originalStackCounts;
+        static readonly IEnumerable<ResearchProjectDef> modExtensionResearches;
+        float baseFactor = 1f;
+
+        public float CurFactor
+        {
+            get => baseFactor;
+            set => baseFactor = value;
+        }
+        public WorldComponent_StackCountEditManager(World world) : base(world)
+        {
+        }
+        static WorldComponent_StackCountEditManager()
+        {
+            originalStackCounts = new Dictionary<ThingDef, int>();
+            foreach (var def in DefDatabase<ThingDef>.AllDefs)
+            {
+                originalStackCounts.Add(def, def.stackLimit);
+            }
+            modExtensionResearches = from r in DefDatabase<ResearchProjectDef>.AllDefs
+                                     where r.HasModExtension<ModExtension_StackCountFactor>()
+                                     select r;
+        }
+        ~WorldComponent_StackCountEditManager()
+        {
+            //reset
+            foreach (var pair in originalStackCounts)
+            {
+                pair.Key.stackLimit = pair.Value;
+            }
+        }
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref baseFactor, "curFactor", 1f);
+
+            //Called just after defs loaded
+            //Note: WorldComponent.FinalizeInit is indeed called BEFORE spawning of things, but ResolveCrossRefs undoes any def changes
+            if (Scribe.mode == LoadSaveMode.ResolvingCrossRefs)
+            {
+                Log.Message("ResolvingCrossRefs: curFactor: " + baseFactor);//----------------------------------------------
+                RefreshStackCountEdits();
+            }
+        }
+
+        public void MultiplyFactorBy(float by)
+        {
+            CurFactor *= by;
+            RefreshStackCountEdits();
+        }
+        
+        public void RefreshResearches()
+        {
+            CurFactor = 1f;
+            foreach (var e in modExtensionResearches)
+            {
+                if (e.IsFinished || RSUUtil.RepeatableResearchManager.researchedFactor.ContainsKey(e))
+                {
+                    var modExtension = e.GetModExtension<ModExtension_StackCountFactor>();
+                    modExtension.ApplyWorker(e);
+                }
+            }
+        }
+
+        private void RefreshStackCountEdits()
+        {
+            foreach (var tDef in DefDatabase<ThingDef>.AllDefs)
+            {
+                if (tDef.thingClass.IsSubclassOf(typeof(Corpse)) || tDef.thingClass == typeof(Corpse) || tDef.category != ThingCategory.Item)
+                    continue;
+                int newLimit = Mathf.FloorToInt(originalStackCounts[tDef] * CurFactor);
+                //For freak situations when an overflow occurs
+                if (newLimit < 0)
+                {
+                    newLimit = int.MaxValue;
+                }
+                if (newLimit > 1)
+                {
+                    //Just in case their thing labels are disabled, re-enable
+                    tDef.drawGUIOverlay = true;
+                }
+
+                tDef.stackLimit = newLimit;
+            }
+        }
+    }
+
+}

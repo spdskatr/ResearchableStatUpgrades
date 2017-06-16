@@ -24,11 +24,11 @@ namespace ResearchableStatUpgrades
             if (statPartResearchDependent == null)
             {
                 statPartResearchDependent = new StatPart_ResearchDependent();
+                for (int i = 0; i < factors.Count; i++)
+                {
+                    statPartResearchDependent.AddFactor(factors[i]);
+                }
                 def.parts.Add(statPartResearchDependent);
-            }
-            for (int i = 0; i < factors.Count; i++)
-            {
-                statPartResearchDependent.AddFactor(factors[i]);
             }
         }
     }

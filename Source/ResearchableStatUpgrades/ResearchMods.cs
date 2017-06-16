@@ -4,10 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using UnityEngine;
 using Verse;
 
 namespace ResearchableStatUpgrades
 {
+    public interface IRegisterable { void Register(WorldComponent_DefEditingResearchManager comp); }
+
     public static class DefEditing
     {
         public const BindingFlags universal = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.GetField | BindingFlags.SetField | BindingFlags.GetProperty | BindingFlags.SetProperty;
@@ -40,7 +43,7 @@ namespace ResearchableStatUpgrades
             }
         }
     }
-    public abstract class ResearchMod_Registerable : ResearchMod
+    public abstract class ResearchMod_SingleRegisterable : ResearchMod, IRegisterable
     {
         public abstract void Register(WorldComponent_DefEditingResearchManager comp);
         public WorldComponent_DefEditingResearchManager WorldComp { get; protected set; }
@@ -74,12 +77,11 @@ namespace ResearchableStatUpgrades
         public override void Apply()
         {
             base.Apply();
-            var gamecomp = Find.World.GetComponent<WorldComponent_RepeatableResearchManager>();
-            gamecomp.AddToDictionary(def);
+            RSUUtil.RepeatableResearchManager.AddToDictionary(def);
         }
     }
 
-    public class ResearchMod_EditVerbProperties : ResearchMod_Registerable
+    public class ResearchMod_EditVerbProperties : ResearchMod_SingleRegisterable
     {
         public ThingDef def;
         public int index;
@@ -94,7 +96,7 @@ namespace ResearchableStatUpgrades
             WorldComp.AddEditor(Editor, false);
         }
     }
-    public class ResearchMod_EditBuildingProperties : ResearchMod_Registerable
+    public class ResearchMod_EditBuildingProperties : ResearchMod_SingleRegisterable
     {
         public ThingDef def;
         public string fieldName;
@@ -108,7 +110,7 @@ namespace ResearchableStatUpgrades
             WorldComp.AddEditor(Editor, false);
         }
     }
-    public class ResearchMod_EditDef : ResearchMod_Registerable
+    public class ResearchMod_EditDef : ResearchMod_SingleRegisterable
     {
         public Def def;
         public string fieldName;
@@ -125,7 +127,7 @@ namespace ResearchableStatUpgrades
             WorldComp.AddEditor(Editor, false);
         }
     }
-    public class ResearchMod_EditIngestibleProperties : ResearchMod_Registerable
+    public class ResearchMod_EditIngestibleProperties : ResearchMod_SingleRegisterable
     {
         public ThingDef def;
         public string fieldName;
@@ -138,6 +140,37 @@ namespace ResearchableStatUpgrades
             LogicFieldEditor logicFieldEditor = new LogicFieldEditor(fieldInfo, fieldInfo.GetValue(def.ingestible), DefEditing.Parse(fieldInfo, value), def.ingestible);
             Editor = logicFieldEditor;
             WorldComp.AddEditor(Editor, false);
+        }
+    }
+    public class ResearchMod_EditCompProperties : ResearchMod_SingleRegisterable
+    {
+        public ThingDef def;
+        public Type type;
+        public string fieldName;
+        public string value;
+
+        public override void Register(WorldComponent_DefEditingResearchManager comp)
+        {
+            WorldComp = comp;
+            FieldInfo fieldInfo = type.GetField(fieldName, DefEditing.universal);
+            
+            var compProps = def.comps.Find(c => c.GetType() == type || c.GetType().IsSubclassOf(type));
+            if (compProps == null)
+            {
+                Log.Error("CompProperties type " + type.FullName + " was not found.");
+                return;
+            }
+            LogicFieldEditor logicFieldEditor = new LogicFieldEditor(fieldInfo, fieldInfo.GetValue(compProps), DefEditing.Parse(fieldInfo, value), compProps);
+            Editor = logicFieldEditor;
+            WorldComp.AddEditor(Editor, false);
+        }
+    }
+
+    public class ResearchMod_EditStackCounts : ResearchMod
+    {
+        public override void Apply()
+        {
+            RSUUtil.StackCountEditManager.RefreshResearches();
         }
     }
 }

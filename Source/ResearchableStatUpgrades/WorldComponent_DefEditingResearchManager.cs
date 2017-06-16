@@ -23,7 +23,7 @@ namespace ResearchableStatUpgrades
     }
     public class WorldComponent_DefEditingResearchManager : WorldComponent
     {
-        public bool initialized;
+        bool initialized;
         Dictionary<LogicFieldEditor, bool> editors = new Dictionary<LogicFieldEditor, bool>();
         public FieldInfo ResearchModField { get; }
         public World World { get; }
@@ -44,12 +44,13 @@ namespace ResearchableStatUpgrades
                 IEnumerable<ResearchMod> enumerable = DefDatabase<ResearchProjectDef>.AllDefs.SelectMany(d => (List<ResearchMod>)fieldInfo.GetValue(d) ?? new List<ResearchMod>());
                 foreach (var m in enumerable)
                 {
-                    if (m is ResearchMod_Registerable r)
+                    if (m is IRegisterable r)
                     {
                         r.Register(this);
                     }
                 }
             }
+            
         }
 
         /// <summary>
@@ -67,7 +68,8 @@ namespace ResearchableStatUpgrades
         {
             if (!editors.ContainsKey(a))
             {
-                throw new ArgumentException("LogicFieldEditor was not found in the dictionary.");
+                Log.Error("LogicFieldEditor was not found in the dictionary.");
+                return;
             }
             editors[a] = b;
             if (initialized)
