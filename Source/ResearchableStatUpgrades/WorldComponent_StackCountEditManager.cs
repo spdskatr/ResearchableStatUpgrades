@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using System.Reflection;
+using RimWorld;
 
 namespace ResearchableStatUpgrades
 {
@@ -54,7 +55,6 @@ namespace ResearchableStatUpgrades
             //Note: WorldComponent.FinalizeInit is indeed called BEFORE spawning of things, but ResolveCrossRefs undoes any def changes
             if (Scribe.mode == LoadSaveMode.ResolvingCrossRefs)
             {
-                Log.Message("ResolvingCrossRefs: curFactor: " + baseFactor);//----------------------------------------------
                 RefreshStackCountEdits();
             }
         }
@@ -82,7 +82,7 @@ namespace ResearchableStatUpgrades
         {
             foreach (var tDef in DefDatabase<ThingDef>.AllDefs)
             {
-                if (tDef.thingClass.IsSubclassOf(typeof(Corpse)) || tDef.thingClass == typeof(Corpse) || tDef.category != ThingCategory.Item)
+                if (tDef.thingClass.IsInst(typeof(Corpse)) || tDef.thingClass.IsInst(typeof(Apparel)) || tDef.thingClass.IsInst(typeof(MinifiedThing)) || tDef.category != ThingCategory.Item)
                     continue;
                 int newLimit = Mathf.FloorToInt(originalStackCounts[tDef] * CurFactor);
                 //For freak situations when an overflow occurs

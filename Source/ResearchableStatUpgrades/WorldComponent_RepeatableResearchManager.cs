@@ -6,7 +6,7 @@ using Verse;
 
 namespace ResearchableStatUpgrades
 {
-    public sealed class WorldComponent_RepeatableResearchManager : WorldComponent
+    public class WorldComponent_RepeatableResearchManager : WorldComponent
     {
         public Dictionary<ResearchProjectDef, int> researchedFactor = new Dictionary<ResearchProjectDef, int>();
 

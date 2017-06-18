@@ -3,7 +3,7 @@
 	<ResearchProjectDef>
 		<defName>StackingI</defName>
 		<label>Stacking I</label>
-		<description>Learn how to sort and stack things properly, rather than dump it in a pile. This multiplies the stack limit globally (except corpses) by 1.5. Like all others, these upgrades stack.</description>
+		<description>Learn how to sort and stack things properly, rather than dump it in a pile. This multiplies the stack limit globally (except corpses, uninstalled furniture and apparel) by 1.5. Like all others, these upgrades stack.</description>
 		<baseCost>1500</baseCost>
 		<techLevel>Industrial</techLevel>
         <tab>StatUpgrades</tab>
@@ -25,7 +25,7 @@
 	<ResearchProjectDef>
 		<defName>StackingII</defName>
 		<label>Stacking II</label>
-		<description>Learn how to use special arrangements to be able to stack more items in a small space. This multiplies the stack limit globally (except corpses) by 2. Like all others, these upgrades stack.</description>
+		<description>Learn how to use special arrangements to be able to stack more items in a small space. This multiplies the stack limit globally (except corpses, uninstalled furniture and apparel) by 2. Like all others, these upgrades stack.</description>
 		<baseCost>2250</baseCost>
 		<techLevel>Industrial</techLevel>
         <tab>StatUpgrades</tab>
@@ -48,7 +48,7 @@
 	<ResearchProjectDef>
 		<defName>StackingIII</defName>
 		<label>Stacking III</label>
-		<description>Learn how to apply physics to be able to stack more items in a set space. This multiplies the stack limit globally (except corpses) by 3. Like all others, these upgrades stack.</description>
+		<description>Learn how to apply physics to be able to stack more items in a set space. This multiplies the stack limit globally (except corpses, uninstalled furniture and apparel) by 3. Like all others, these upgrades stack.</description>
 		<baseCost>3500</baseCost>
 		<techLevel>Industrial</techLevel>
         <tab>StatUpgrades</tab>
@@ -71,7 +71,7 @@
 	<ResearchProjectDef>
 		<defName>StackingIV</defName>
 		<label>Stacking IV</label>
-		<description>Learn how to apply dimensional physics to be able to stack more items in a set space. This multiplies the stack limit globally (except corpses) by 4. Like all others, these upgrades stack.</description>
+		<description>Learn how to apply dimensional physics to be able to stack more items in a set space. This multiplies the stack limit globally (except corpses, uninstalled furniture and apparel) by 4. Like all others, these upgrades stack.</description>
 		<baseCost>3500</baseCost>
 		<techLevel>Spacer</techLevel>
         <tab>StatUpgrades</tab>

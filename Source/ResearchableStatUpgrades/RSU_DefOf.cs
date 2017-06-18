@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using System;
 using Verse;
 
 namespace ResearchableStatUpgrades
@@ -13,5 +14,7 @@ namespace ResearchableStatUpgrades
         public static WorldComponent_RepeatableResearchManager RepeatableResearchManager => Find.World.GetComponent<WorldComponent_RepeatableResearchManager>();
 
         public static WorldComponent_StackCountEditManager StackCountEditManager => Find.World.GetComponent<WorldComponent_StackCountEditManager>();
+
+        public static bool IsInst(this Type t, Type a) => t.IsSubclassOf(a) || t == a;
     }
 }
