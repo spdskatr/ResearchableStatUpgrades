@@ -16,5 +16,7 @@ namespace ResearchableStatUpgrades
         public static WorldComponent_StackCountEditManager StackCountEditManager => Find.World.GetComponent<WorldComponent_StackCountEditManager>();
 
         public static bool IsInst(this Type t, Type a) => t.IsSubclassOf(a) || t == a;
+
+        public static bool IsSingleStackWeapon(this ThingDef t) => WorldComponent_StackCountEditManager.originalStackCounts[t] == 1 && t.Verbs.Any();
     }
 }

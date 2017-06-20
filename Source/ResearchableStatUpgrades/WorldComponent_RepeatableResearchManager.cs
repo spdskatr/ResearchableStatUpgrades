@@ -12,6 +12,11 @@ namespace ResearchableStatUpgrades
 
         public WorldComponent_RepeatableResearchManager(World world) : base(world)
         {
+            ResetResearchedFactor();
+        }
+
+        private void ResetResearchedFactor()
+        {
             foreach (var d in DefDatabase<ResearchProjectDef>.AllDefs)
             {
                 if (d.GetModExtension<ModExtension_ResearchScaleable>() != null)

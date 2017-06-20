@@ -15,7 +15,7 @@ namespace ResearchableStatUpgrades
     /// </summary>
     public class WorldComponent_StackCountEditManager : WorldComponent
     {
-        static readonly Dictionary<ThingDef, int> originalStackCounts;
+        public static readonly Dictionary<ThingDef, int> originalStackCounts;
         static readonly IEnumerable<ResearchProjectDef> modExtensionResearches;
         float baseFactor = 1f;
 
@@ -82,7 +82,7 @@ namespace ResearchableStatUpgrades
         {
             foreach (var tDef in DefDatabase<ThingDef>.AllDefs)
             {
-                if (tDef.thingClass.IsInst(typeof(Corpse)) || tDef.thingClass.IsInst(typeof(Apparel)) || tDef.thingClass.IsInst(typeof(MinifiedThing)) || tDef.category != ThingCategory.Item)
+                if (tDef.thingClass.IsInst(typeof(Corpse)) || tDef.thingClass.IsInst(typeof(Apparel)) || tDef.thingClass.IsInst(typeof(MinifiedThing)) || tDef.IsSingleStackWeapon() || tDef.category != ThingCategory.Item)
                     continue;
                 int newLimit = Mathf.FloorToInt(originalStackCounts[tDef] * CurFactor);
                 //For freak situations when an overflow occurs
