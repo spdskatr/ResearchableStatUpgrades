@@ -82,21 +82,28 @@ namespace ResearchableStatUpgrades
         {
             foreach (var tDef in DefDatabase<ThingDef>.AllDefs)
             {
-                if (tDef.thingClass.IsInst(typeof(Corpse)) || tDef.thingClass.IsInst(typeof(Apparel)) || tDef.thingClass.IsInst(typeof(MinifiedThing)) || tDef.IsSingleStackWeapon() || tDef.category != ThingCategory.Item)
-                    continue;
-                int newLimit = Mathf.FloorToInt(originalStackCounts[tDef] * CurFactor);
-                //For freak situations when an overflow occurs
-                if (newLimit < 0)
+                try
                 {
-                    newLimit = int.MaxValue;
-                }
-                if (newLimit > 1)
-                {
-                    //Just in case their thing labels are disabled, re-enable
-                    tDef.drawGUIOverlay = true;
-                }
+                    if (tDef.thingClass.IsInst(typeof(Corpse), typeof(Apparel), typeof(MinifiedThing), typeof(UnfinishedThing)) || tDef.IsSingleStackWeapon() || tDef.category != ThingCategory.Item)
+                        continue;
+                    int newLimit = Mathf.FloorToInt(originalStackCounts[tDef] * CurFactor);
+                    //For freak situations when an overflow occurs
+                    if (newLimit < 0)
+                    {
+                        newLimit = int.MaxValue;
+                    }
+                    if (newLimit > 1)
+                    {
+                        //Just in case their thing labels are disabled, re-enable
+                        tDef.drawGUIOverlay = true;
+                    }
 
-                tDef.stackLimit = newLimit;
+                    tDef.stackLimit = newLimit;
+                }
+                catch (Exception ex)
+                {
+                    Log.Error("Exception editing stack counts for ThingDef \"" + tDef.defName + "\": " + ex);
+                }
             }
         }
     }

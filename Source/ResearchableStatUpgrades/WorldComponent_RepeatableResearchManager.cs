@@ -19,7 +19,7 @@ namespace ResearchableStatUpgrades
         {
             foreach (var d in DefDatabase<ResearchProjectDef>.AllDefs)
             {
-                if (d.GetModExtension<ModExtension_ResearchScaleable>() != null)
+                if (d.IsRepeatableResearch())
                 {
                     researchedFactor.Add(d, 0);
                 }

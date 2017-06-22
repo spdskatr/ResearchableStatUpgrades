@@ -57,7 +57,7 @@ namespace ResearchableStatUpgrades
 
         private static bool ShouldApplyFactorToRequest(StatRequest req, ResearchFactor factor)
         {
-            return factor.def.IsFinished && 
+            return (factor.def.IsFinished || factor.def.IsRepeatableResearch()) && req.HasThing &&
                 (req.Thing.def.race.Humanlike || factor.applyToNonHumanlike) && 
                 (req.Thing.Faction == Faction.OfPlayer || factor.applyToNonColonistFaction);
         }

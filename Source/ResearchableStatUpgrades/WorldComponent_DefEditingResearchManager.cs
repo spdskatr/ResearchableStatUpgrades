@@ -30,7 +30,7 @@ namespace ResearchableStatUpgrades
         public WorldComponent_DefEditingResearchManager(World world) : base(world)
         {
             World = world;
-            FieldInfo fieldInfo = typeof(ResearchProjectDef).GetField("researchMods", DefEditing.universal);
+            FieldInfo fieldInfo = typeof(ResearchProjectDef).GetField("researchMods", RSUUtil.universal);
             ResearchModField = fieldInfo;
 
             //Tries to find cached dictionary from previous save. The dictionaries aren't save-specific, but still do contain crucial information about the initial value of edited fields.

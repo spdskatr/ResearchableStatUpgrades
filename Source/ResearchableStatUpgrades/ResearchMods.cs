@@ -10,39 +10,7 @@ using Verse;
 namespace ResearchableStatUpgrades
 {
     public interface IRegisterable { void Register(WorldComponent_DefEditingResearchManager comp); }
-
-    public static class DefEditing
-    {
-        public const BindingFlags universal = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.GetField | BindingFlags.SetField | BindingFlags.GetProperty | BindingFlags.SetProperty;
-        public static readonly MethodBase memberwiseCloneMethod = typeof(object).GetMethod("MemberwiseClone", universal);
-        public static void LoadAndEditField(FieldInfo fieldInfo, string value, object instance)
-        {
-            object val = Parse(fieldInfo, value);
-            fieldInfo.SetValue(instance, val);
-        }
-
-        public static object MemberwiseClonePublic(this object obj)
-        {
-            return memberwiseCloneMethod.Invoke(obj, null);
-        }
-
-        public static object Parse(FieldInfo fieldInfo, string value)
-        {
-            object val;
-            try
-            {
-                if (fieldInfo.FieldType.IsSubclassOf(typeof(Def)))
-                    val = GenDefDatabase.GetDef(fieldInfo.FieldType, value);
-                else
-                    val = ParseHelper.FromString(value, fieldInfo.FieldType);
-                return val;
-            }
-            catch (Exception e)
-            {
-                throw new Exception("Researchable Stat Upgrades :: Exception parsing string: " + e);
-            }
-        }
-    }
+    
     public abstract class ResearchMod_SingleRegisterable : ResearchMod, IRegisterable
     {
         public abstract void Register(WorldComponent_DefEditingResearchManager comp);
@@ -68,8 +36,8 @@ namespace ResearchableStatUpgrades
                 def = Find.ResearchManager.currentProj;
 
             progress[def] = 0f;
-            //For testing and spamming purposes - No real effect on standard gameplay
-            Find.ResearchManager.currentProj = null;
+            //For testing and spamming purposes - No real effect on standard gameplay - AND CAUSING BUGS!
+            //Find.ResearchManager.currentProj = null;
         }
     }
     public class ResearchMod_Repeatable : ResearchMod_SetResearchToZero
@@ -90,8 +58,8 @@ namespace ResearchableStatUpgrades
         public override void Register(WorldComponent_DefEditingResearchManager comp)
         {
             WorldComp = comp;
-            FieldInfo fieldInfo = typeof(VerbProperties).GetField(fieldName, DefEditing.universal);
-            LogicFieldEditor logicFieldEditor = new LogicFieldEditor(fieldInfo, fieldInfo.GetValue(def.Verbs[index]), DefEditing.Parse(fieldInfo, value), def.Verbs[index]);
+            FieldInfo fieldInfo = typeof(VerbProperties).GetField(fieldName, RSUUtil.universal);
+            LogicFieldEditor logicFieldEditor = new LogicFieldEditor(fieldInfo, fieldInfo.GetValue(def.Verbs[index]), RSUUtil.Parse(fieldInfo, value), def.Verbs[index]);
             Editor = logicFieldEditor;
             WorldComp.AddEditor(Editor, false);
         }
@@ -104,8 +72,8 @@ namespace ResearchableStatUpgrades
         public override void Register(WorldComponent_DefEditingResearchManager comp)
         {
             WorldComp = comp;
-            FieldInfo fieldInfo = typeof(BuildingProperties).GetField(fieldName, DefEditing.universal);
-            LogicFieldEditor logicFieldEditor = new LogicFieldEditor(fieldInfo, fieldInfo.GetValue(def.building), DefEditing.Parse(fieldInfo, value), def.building);
+            FieldInfo fieldInfo = typeof(BuildingProperties).GetField(fieldName, RSUUtil.universal);
+            LogicFieldEditor logicFieldEditor = new LogicFieldEditor(fieldInfo, fieldInfo.GetValue(def.building), RSUUtil.Parse(fieldInfo, value), def.building);
             Editor = logicFieldEditor;
             WorldComp.AddEditor(Editor, false);
         }
@@ -119,10 +87,10 @@ namespace ResearchableStatUpgrades
         public override void Register(WorldComponent_DefEditingResearchManager comp)
         {
             WorldComp = comp;
-            FieldInfo fieldInfo = def.GetType().GetFields(DefEditing.universal).ToList().Find(field => field.Name == fieldName);
+            FieldInfo fieldInfo = def.GetType().GetFields(RSUUtil.universal).ToList().Find(field => field.Name == fieldName);
             if (fieldInfo == null)
                 Log.Error(string.Format("Cannot find field {0} in Def {1}", fieldName, def.defName));
-            LogicFieldEditor logicFieldEditor = new LogicFieldEditor(fieldInfo, fieldInfo.GetValue(def), DefEditing.Parse(fieldInfo, value), def);
+            LogicFieldEditor logicFieldEditor = new LogicFieldEditor(fieldInfo, fieldInfo.GetValue(def), RSUUtil.Parse(fieldInfo, value), def);
             Editor = logicFieldEditor;
             WorldComp.AddEditor(Editor, false);
         }
@@ -136,8 +104,8 @@ namespace ResearchableStatUpgrades
         public override void Register(WorldComponent_DefEditingResearchManager comp)
         {
             WorldComp = comp;
-            FieldInfo fieldInfo = typeof(IngestibleProperties).GetField(fieldName, DefEditing.universal);
-            LogicFieldEditor logicFieldEditor = new LogicFieldEditor(fieldInfo, fieldInfo.GetValue(def.ingestible), DefEditing.Parse(fieldInfo, value), def.ingestible);
+            FieldInfo fieldInfo = typeof(IngestibleProperties).GetField(fieldName, RSUUtil.universal);
+            LogicFieldEditor logicFieldEditor = new LogicFieldEditor(fieldInfo, fieldInfo.GetValue(def.ingestible), RSUUtil.Parse(fieldInfo, value), def.ingestible);
             Editor = logicFieldEditor;
             WorldComp.AddEditor(Editor, false);
         }
@@ -152,7 +120,7 @@ namespace ResearchableStatUpgrades
         public override void Register(WorldComponent_DefEditingResearchManager comp)
         {
             WorldComp = comp;
-            FieldInfo fieldInfo = type.GetField(fieldName, DefEditing.universal);
+            FieldInfo fieldInfo = type.GetField(fieldName, RSUUtil.universal);
             
             var compProps = def.comps.Find(c => c.GetType() == type || c.GetType().IsSubclassOf(type));
             if (compProps == null)
@@ -160,7 +128,7 @@ namespace ResearchableStatUpgrades
                 Log.Error("CompProperties type " + type.FullName + " was not found.");
                 return;
             }
-            LogicFieldEditor logicFieldEditor = new LogicFieldEditor(fieldInfo, fieldInfo.GetValue(compProps), DefEditing.Parse(fieldInfo, value), compProps);
+            LogicFieldEditor logicFieldEditor = new LogicFieldEditor(fieldInfo, fieldInfo.GetValue(compProps), RSUUtil.Parse(fieldInfo, value), compProps);
             Editor = logicFieldEditor;
             WorldComp.AddEditor(Editor, false);
         }
