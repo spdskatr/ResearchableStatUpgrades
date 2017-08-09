@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Verse;
+using Harmony;//Only for research temp fix
+using System.Reflection.Emit;
 
 namespace ResearchableStatUpgrades
 {
@@ -57,6 +59,99 @@ namespace ResearchableStatUpgrades
             {
                 throw new Exception("Researchable Stat Upgrades :: Exception parsing string: " + e);
             }
+        }
+    }
+    //SECTION BELOW IS PATCH FOR STACKING RESEARCH
+    [HarmonyPatch(typeof(Thing), nameof(Thing.SpawnSetup)), StaticConstructorOnStartup]
+    static class Patch
+    {
+        public static readonly HarmonyInstance inst;
+        static Patch()
+        {
+            inst = HarmonyInstance.Create("com.spdskatr.rsu.fixes");
+            inst.Patch(typeof(Thing).GetMethod("SpawnSetup"), null, null, HarMetCtor("Transpiler1"));
+            inst.Patch(typeof(CompUseEffect_Artifact).GetMethod("DoEffect"), null, null, HarMetCtor("Transpiler2"));
+            inst.Patch(typeof(CompUseEffect_LearnSkill).GetMethod("DoEffect"), null, null, HarMetCtor("Transpiler2"));
+            Log.Message("Researchable Stat Upgrades :: Fix(es) initialized (abolished spawn stack count truncation entirely, fixed bug where using neurotrainers/artifacts more than once caused whole stack to deplete)");
+        }
+        static HarmonyMethod HarMetCtor(MethodInfo method)
+        {
+            return new HarmonyMethod(method);
+        }
+        static HarmonyMethod HarMetCtor(string method, Type type = null, Type[] args = null)
+        {
+            return new HarmonyMethod(type ?? typeof(Patch), method, args);
+        }
+        static MethodInfo GetLocalMethod(string method, Type[] parameters = null)
+        {
+            return AccessTools.Method(typeof(Patch), method, parameters);
+        }
+        static IEnumerable<CodeInstruction> Transpiler1(IEnumerable<CodeInstruction> instructions, ILGenerator gen)
+        {
+            var label = gen.DefineLabel();
+            bool next = false;
+            foreach (var ins in instructions)
+            {
+                if (ins.opcode == OpCodes.Ldc_I4_7)
+                {
+                    yield return new CodeInstruction(OpCodes.Br, label);
+                }
+                else if (ins.opcode == OpCodes.Stfld && ins.operand == typeof(Thing).GetField("stackCount"))
+                {
+                    next = true;
+                }
+                else if (next)
+                {
+                    ins.labels.Add(label);
+                    next = false;
+                }
+                yield return ins;
+            }
+        }
+        //2nd patch
+        static IEnumerable<CodeInstruction> Transpiler2(IEnumerable<CodeInstruction> original, ILGenerator gen)
+        {
+            var label = gen.DefineLabel();
+            var label2 = gen.DefineLabel();
+            bool addlabel = false;
+            foreach (var cur in original)
+            {
+                if (cur.operand == typeof(ThingWithComps).GetMethod("Destroy"))
+                {
+                    yield return new CodeInstruction(OpCodes.Ldarg_0);
+                    yield return new CodeInstruction(OpCodes.Call, GetLocalMethod("TranspilerUtility"));
+                    yield return new CodeInstruction(OpCodes.Brfalse, label);
+                    yield return cur;
+                    yield return new CodeInstruction(OpCodes.Br, label2);
+                    yield return new CodeInstruction(OpCodes.Call, GetLocalMethod("Absorb")).AddLabel(label);
+                    addlabel = true;
+                }
+                else if (addlabel)
+                {
+                    yield return cur.AddLabel(label2);
+                    addlabel = false;
+                }
+                else
+                {
+                    yield return cur;
+                }
+            }
+        }
+        public static CodeInstruction AddLabel(this CodeInstruction instr, params Label[] ls)
+        {
+            instr.labels.AddRange(ls);
+            return instr;
+        }
+        public static void Absorb(ThingComp comp, DestroyMode mode) { }
+        public static bool TranspilerUtility(ThingComp tc)
+        {
+            var t = tc.parent;
+            if (t.stackCount > 1)
+            {
+                t.SplitOff(1);
+                return false;
+            }
+            return true;
         }
     }
 }

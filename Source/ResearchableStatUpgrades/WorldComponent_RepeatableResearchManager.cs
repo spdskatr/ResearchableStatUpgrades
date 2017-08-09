@@ -10,10 +10,9 @@ namespace ResearchableStatUpgrades
     {
         public Dictionary<ResearchProjectDef, int> researchedFactor = new Dictionary<ResearchProjectDef, int>();
 
-        public WorldComponent_RepeatableResearchManager(World world) : base(world)
-        {
-            ResetResearchedFactor();
-        }
+        public WorldComponent_RepeatableResearchManager(World world) : base(world) { }
+
+        ~WorldComponent_RepeatableResearchManager() => ResetResearchedFactor();
 
         private void ResetResearchedFactor()
         {
