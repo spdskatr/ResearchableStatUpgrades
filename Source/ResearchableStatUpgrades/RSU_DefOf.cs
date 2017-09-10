@@ -93,8 +93,8 @@ namespace ResearchableStatUpgrades
             // find 1st use of 'ThingDef::stackLimit'. It's the 'if (this.stackCount > this.def.stackLimit)' comparison. Modify following jump to always skip the correcting code block inside the 'if'
             // real clean version would then do a 2nd pass over all skipped things once the resaerch modifiers are correctly loaded... but.... ah well... it'll work out... hopefully...
             var idxFirstLimitReference = instr.FirstIndexOf(ci => ci.opcode == OpCodes.Ldfld && ci.operand == typeof(ThingDef).GetField(nameof(ThingDef.stackLimit)));
-            if (idxFirstLimitReference == -1) {
-                Log.Warning("Could not find 'stackLimit' reference - not patching SpawnSetup.");
+            if (idxFirstLimitReference == -1 || instr[idxFirstLimitReference +1].opcode != OpCodes.Ble) {
+                Log.Warning("Could not find expected 'stackLimit' reference - not patching SpawnSetup.");
                 return instr;
             }
             instr[idxFirstLimitReference + 1].opcode = OpCodes.Br;
