@@ -88,25 +88,18 @@ namespace ResearchableStatUpgrades
         }
         static IEnumerable<CodeInstruction> Transpiler1(IEnumerable<CodeInstruction> instructions, ILGenerator gen)
         {
-            var label = gen.DefineLabel();
-            bool next = false;
-            foreach (var ins in instructions)
-            {
-                if (ins.opcode == OpCodes.Ldc_I4_7)
-                {
-                    yield return new CodeInstruction(OpCodes.Br, label);
-                }
-                else if (ins.opcode == OpCodes.Stfld && ins.operand == typeof(Thing).GetField("stackCount"))
-                {
-                    next = true;
-                }
-                else if (next)
-                {
-                    ins.labels.Add(label);
-                    next = false;
-                }
-                yield return ins;
+            List<CodeInstruction> instr = new List<CodeInstruction>(instructions);
+
+            // find 1st use of 'ThingDef::stackLimit'. It's the 'if (this.stackCount > this.def.stackLimit)' comparison. Modify following jump to always skip the correcting code block inside the 'if'
+            // real clean version would then do a 2nd pass over all skipped things once the resaerch modifiers are correctly loaded... but.... ah well... it'll work out... hopefully...
+            var idxFirstLimitReference = instr.FirstIndexOf(ci => ci.opcode == OpCodes.Ldfld && ci.operand == typeof(ThingDef).GetField(nameof(ThingDef.stackLimit)));
+            if (idxFirstLimitReference == -1 || instr[idxFirstLimitReference +1].opcode != OpCodes.Ble) {
+                Log.Warning("Could not find expected 'stackLimit' reference - not patching SpawnSetup.");
+                return instr;
             }
+            instr[idxFirstLimitReference + 1].opcode = OpCodes.Br;
+
+            return instr;
         }
         //2nd patch
         static IEnumerable<CodeInstruction> Transpiler2(IEnumerable<CodeInstruction> original, ILGenerator gen)
