@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Misc>
+<Defs>
 	<!--Psychology: (Courtesy of KingSihv)-->
 	<ResearchProjectDef>
 		<defName>Psychology</defName>
 		<label>psychology</label>
 		<description>Understand what prisoners are feeling. Recruit chance increased by 15%.</description>
-		<baseCost>1000</baseCost>
+		<baseCost>1500</baseCost>
 		<techLevel>Industrial</techLevel>
         <tab>StatUpgrades</tab>
 		<researchViewX>1</researchViewX>
@@ -16,7 +16,7 @@
 		<defName>MeatCutCharts</defName>
 		<label>Meat Cut Charts</label>
 		<description>Learn how to butcher animals efficiently. Meat amount increased by 25%.</description>
-		<baseCost>3000</baseCost>
+		<baseCost>4500</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
 			<li>AnimalsII</li>
@@ -28,4 +28,4 @@
 		<researchViewY>4</researchViewY>
 	</ResearchProjectDef>
 	
-</Misc>
+</Defs>

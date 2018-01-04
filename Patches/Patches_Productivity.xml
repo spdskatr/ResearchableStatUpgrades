@@ -6,20 +6,16 @@
             <li Class="ResearchableStatUpgrades.StatPart_ResearchDependent">
                 <researchFactors>
                     <li>
-                        <def>CombatII</def>
+                        <def>ProductivityI</def>
                         <factor>1.05</factor>
                     </li>
                     <li>
-                        <def>ProductivityI</def>
-                        <factor>1.1</factor>
-                    </li>
-                    <li>
                         <def>ProductivityII</def>
-                        <factor>1.1</factor>
+                        <factor>1.05</factor>
                     </li>
                     <li>
                         <def>ProductivityIII</def>
-                        <factor>1.2</factor>
+                        <factor>1.1</factor>
                     </li>
                     <li>
                         <def>ProductivityIV</def>
@@ -40,14 +36,13 @@
         </value>
     </Operation>
     <Operation Class="PatchOperationAdd">
-        <xpath>/StatDefs/StatDef[defName = "MoveSpeed"]</xpath>
+        <xpath>/Defs/StatDef[defName = "MoveSpeed"]/parts</xpath>
         <value>
-        <parts>
             <li Class="ResearchableStatUpgrades.StatPart_ResearchDependent">
                 <researchFactors>
                     <li>
                         <def>ProductivityIII</def>
-                        <factor>1.1</factor>
+                        <factor>1.05</factor>
                     </li>
                     <li>
                         <def>ProductivityIV</def>
@@ -65,7 +60,6 @@
                     </li>
                 </repeatables>
             </li>
-            </parts>
         </value>
     </Operation>
 </Patch>

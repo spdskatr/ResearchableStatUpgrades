@@ -16,6 +16,7 @@ namespace ResearchableStatUpgrades
     public class WorldComponent_StackCountEditManager : WorldComponent
     {
         public static readonly Dictionary<ThingDef, int> originalStackCounts;
+        public static HashSet<ThingDef> prostheses;
         static readonly IEnumerable<ResearchProjectDef> modExtensionResearches;
         float baseFactor = 1f;
 
@@ -37,6 +38,14 @@ namespace ResearchableStatUpgrades
             modExtensionResearches = from r in DefDatabase<ResearchProjectDef>.AllDefs
                                      where r.HasModExtension<ModExtension_StackCountFactor>()
                                      select r;
+            // Prostheses
+            prostheses = new HashSet<ThingDef>(from RecipeDef r in DefDatabase<RecipeDef>.AllDefs
+                                               where r.workerClass.IsInst(typeof(Recipe_Surgery))
+                                               from IngredientCount i in r.ingredients
+                                               where i.GetBaseCount() == 1f
+                                               from ThingDef def in i.filter.AllowedThingDefs
+                                               where originalStackCounts[def] == 1
+                                               select def); // Repeats are automatically eliminated by hash set
         }
         ~WorldComponent_StackCountEditManager()
         {
@@ -84,7 +93,10 @@ namespace ResearchableStatUpgrades
             {
                 try
                 {
-                    if (tDef.thingClass.IsInst(typeof(Corpse), typeof(Apparel), typeof(MinifiedThing), typeof(UnfinishedThing)) || tDef.IsSingleStackWeapon() || tDef.category != ThingCategory.Item)
+                    if (tDef.thingClass.IsInst(typeof(Corpse), typeof(Apparel), typeof(MinifiedThing), typeof(UnfinishedThing)) 
+                        || tDef.IsSingleStackWeapon() 
+                        || tDef.category != ThingCategory.Item
+                        || prostheses.Contains(tDef))
                         continue;
                     int newLimit = Mathf.FloorToInt(originalStackCounts[tDef] * CurFactor);
                     //For freak situations when an overflow occurs

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Misc>
+<Defs>
 	<ResearchProjectDef>
 		<defName>AnimalsI</defName>
 		<label>Animals I</label>
-		<description>Animal gather speed increased by 20%. Animal gather yield chance also increased by 10%.</description>
+		<description>Animal gather speed increased by 10%. Animal gather yield chance also increased by 5%.</description>
 		<baseCost>2000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -17,7 +17,7 @@
 	<ResearchProjectDef>
 		<defName>AnimalsII</defName>
 		<label>Animals II</label>
-		<description>Animal gather speed increased by another 20%. Animal gather yield chance also increased by another 15%.</description>
+		<description>Animal gather speed increased by another 10%. Animal gather yield chance also increased by another 10%.</description>
 		<baseCost>3000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -33,7 +33,7 @@
 	<ResearchProjectDef>
 		<defName>ConstructionI</defName>
 		<label>Construction I</label>
-		<description>Increases construction speed by 20%.</description>
+		<description>Increases construction speed by 10%.</description>
 		<baseCost>2000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -47,7 +47,7 @@
 	<ResearchProjectDef>
 		<defName>ConstructionII</defName>
 		<label>Construction II</label>
-		<description>Construction speed increased by another 25%, and 15% increase in construction success chance.</description>
+		<description>Construction speed increased by another 15%, and 10% increase in construction success chance.</description>
 		<baseCost>3000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -59,4 +59,4 @@
 		<researchViewX>5</researchViewX>
 		<researchViewY>1</researchViewY>
 	</ResearchProjectDef>
-</Misc>
+</Defs>

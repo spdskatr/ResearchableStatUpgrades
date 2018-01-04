@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Misc>
+<Defs>
 	<!--Medical research: Courtesy of KingSihv -->
 	<ResearchProjectDef>
 		<defName>MedicalI</defName>
 		<label>Medical I</label>
-		<description>Medical operation and tend speed increased by 20%. Medical tend quality and success chance also increased by 5%.</description>
+		<description>Medical operation and tend speed increased by 10%. Medical tend quality and success chance also increased by 3%.</description>
 		<baseCost>3000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -18,7 +18,7 @@
 	<ResearchProjectDef>
 		<defName>MedicalII</defName>
 		<label>Medical II</label>
-		<description>Medical operation and tend speed increased by 30%. Medical tend quality and success chance also increased by 15%.</description>
+		<description>Medical operation and tend speed increased by 15%. Medical tend quality and success chance also increased by 10%.</description>
 		<baseCost>3000</baseCost>
 		<techLevel>Spacer</techLevel>
 		<prerequisites>
@@ -34,7 +34,7 @@
 	<ResearchProjectDef>
 		<defName>CombatI</defName>
 		<label>combat I</label>
-		<description>Improves combat accuracy. Shooters' accuracy is increased by 15%, and melee hit and dodge chance both increased by 5%.</description>
+		<description>Improves combat accuracy. Shooters' accuracy is increased by 10%, and melee hit and dodge chance both increased by 5%.</description>
 		<baseCost>1500</baseCost>
 		<techLevel>Industrial</techLevel>
         <tab>StatUpgrades</tab>
@@ -47,7 +47,7 @@
 	<ResearchProjectDef>
 		<defName>CombatII</defName>
 		<label>combat II</label>
-		<description>Improves combat agility. Aiming delay factor is decreased by 10%, and melee hit and dodge chance both further increased by 5%. Move speed also increased by 5%.</description>
+		<description>Improves combat agility. Aiming delay factor is decreased by 5%, and melee hit and dodge chance both further increased by 5%.</description>
 		<baseCost>1500</baseCost>
 		<techLevel>Industrial</techLevel>
         <tab>StatUpgrades</tab>
@@ -57,4 +57,4 @@
             <li>CombatI</li>
         </prerequisites>
 	</ResearchProjectDef>
-</Misc>
+</Defs>

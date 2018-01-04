@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="uf-8"?>
-<Growing>
+<Defs>
     <!--Growing: Occupies y-index 3-->
 	<ResearchProjectDef>
 		<defName>AdvGrowingI</defName>
 		<label>Efficient Farming I</label>
-		<description>Plant work speed increased by 20%.</description>
+		<description>Plant work speed increased by 10%.</description>
 		<baseCost>1000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -19,7 +19,7 @@
 	<ResearchProjectDef>
 		<defName>AdvGrowingII</defName>
 		<label>Efficient Farming II</label>
-		<description>Plant work speed increased by a further 30%.</description>
+		<description>Plant work speed increased by a further 15%.</description>
 		<baseCost>2000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -33,7 +33,7 @@
 	<ResearchProjectDef>
 		<defName>AdvGrowingIII</defName>
 		<label>Efficient Farming III</label>
-		<description>Plant work speed increased by a further 30%, and harvest yield chance increased by 10%.</description>
+		<description>Plant work speed increased by a further 15%, and harvest yield chance increased by 5%.</description>
 		<baseCost>2500</baseCost>
 		<techLevel>Industrial</techLevel>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
@@ -48,7 +48,7 @@
 	<ResearchProjectDef>
 		<defName>AdvGrowingIV</defName>
 		<label>Efficient Farming IV</label>
-		<description>Plant work speed increased by a further 50%, and harvest yield chance increased by a further 15%.</description>
+		<description>Plant work speed increased by a further 25%, and harvest yield chance increased by a further 10%.</description>
 		<baseCost>2500</baseCost>
 		<techLevel>Spacer</techLevel>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
@@ -63,4 +63,4 @@
 		<researchViewX>7</researchViewX>
 		<researchViewY>3</researchViewY>
 	</ResearchProjectDef>
-</Growing>
+</Defs>

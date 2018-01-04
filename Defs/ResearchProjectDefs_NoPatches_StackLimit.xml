@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<StackLimit>
+<Defs>
 	<ResearchProjectDef>
 		<defName>StackingI</defName>
 		<label>Stacking I</label>
@@ -120,4 +120,4 @@
             </li>
 		</modExtensions>
 	</ResearchProjectDef>
-</StackLimit>
+</Defs>

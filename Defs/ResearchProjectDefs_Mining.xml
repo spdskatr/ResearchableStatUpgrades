@@ -31,7 +31,7 @@
 	<ResearchProjectDef>
 		<defName>AdvMiningII</defName>
 		<label>Advanced Mining II</label>
-		<description>Further improvements in mining means miner's picks are a further 30% more effective.</description>
+		<description>Further improvements in mining means miner's picks are a further 15% more effective.</description>
 		<baseCost>2000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -45,7 +45,7 @@
 	<ResearchProjectDef>
 		<defName>AdvMiningIII</defName>
 		<label>Advanced Mining III</label>
-		<description>Improvements in electronics means miner's picks are a further 30% more effective, and yield 25% more materials per mine.</description>
+		<description>Improvements in electronics means miner's picks are a further 15% more effective, and yield 15% more materials per mine.</description>
 		<baseCost>2500</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -60,7 +60,7 @@
 	<ResearchProjectDef>
 		<defName>AdvMiningIV</defName>
 		<label>Advanced Mining IV</label>
-		<description>Further improvements in precision mining means miner's picks are a further 50% more effective, and yield a further 35% more materials per mine.</description>
+		<description>Further improvements in precision mining means miner's picks are a further 25% more effective, and yield a further 20% more materials per mine.</description>
 		<baseCost>2500</baseCost>
 		<techLevel>Spacer</techLevel>
 		<prerequisites>

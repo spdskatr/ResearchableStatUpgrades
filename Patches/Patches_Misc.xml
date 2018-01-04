@@ -16,7 +16,7 @@
         </value>
     </Operation>
     <Operation Class="PatchOperationAdd">
-        <xpath>/StatDefs/StatDef[defName="MeatAmount"]/parts</xpath>
+        <xpath>/Defs/StatDef[defName="MeatAmount"]/parts</xpath>
         <value>
                 <li Class="ResearchableStatUpgrades.StatPart_ResearchDependent">
                     <researchFactors>

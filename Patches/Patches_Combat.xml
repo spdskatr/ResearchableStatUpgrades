@@ -27,7 +27,7 @@
                     <researchFactors>
                         <li>
                             <def>CombatI</def>
-                            <factor>1.15</factor>
+                            <factor>1.10</factor>
                         </li>
                     </researchFactors>
                 </li>
@@ -42,7 +42,7 @@
                     <researchFactors>
                         <li>
                             <def>CombatII</def>
-                            <factor>0.9</factor>
+                            <factor>0.95</factor>
                         </li>
                     </researchFactors>
                 </li>

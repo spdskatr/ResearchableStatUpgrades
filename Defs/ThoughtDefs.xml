@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ThoughtDefPackage>
+<Defs>
   <ThoughtDef>
     <defName>AteAwfulMealFlavored</defName>
     <durationDays>0.5</durationDays>
@@ -12,4 +12,4 @@
       </li>
     </stages>
   </ThoughtDef>
-</ThoughtDefPackage>
+</Defs>
