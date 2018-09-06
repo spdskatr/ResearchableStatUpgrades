@@ -8,11 +8,11 @@
                     <researchFactors>
                         <li>
                             <def>MedicalI</def>
-                            <factor>1.03</factor>
+                            <factor>1.025</factor>
                         </li>
                         <li>
                             <def>MedicalII</def>
-                            <factor>1.1</factor>
+                            <factor>1.05</factor>
                         </li>
                     </researchFactors>
                 </li>
@@ -27,11 +27,11 @@
                     <researchFactors>
                         <li>
                             <def>MedicalI</def>
-                            <factor>1.1</factor>
+                            <factor>1.5</factor>
                         </li>
                         <li>
                             <def>MedicalII</def>
-                            <factor>1.15</factor>
+                            <factor>1.075</factor>
                         </li>
                     </researchFactors>
                 </li>

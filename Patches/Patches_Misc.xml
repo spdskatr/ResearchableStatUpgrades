@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
     <Operation Class="PatchOperationAdd">
-        <xpath>/Defs/StatDef[defName="RecruitPrisonerChance"]</xpath>
+        <xpath>/Defs/StatDef[defName="NegotiationAbility"]</xpath>
         <value>
             <parts>
                 <li Class="ResearchableStatUpgrades.StatPart_ResearchDependent">
                     <researchFactors>
                         <li>
                             <def>Psychology</def>
-                            <factor>1.15</factor>
+                            <factor>1.075</factor>
                         </li>
                     </researchFactors>
                 </li>
@@ -22,7 +22,7 @@
                     <researchFactors>
                         <li>
                             <def>MeatCutCharts</def>
-                            <factor>1.25</factor>
+                            <factor>1.125</factor>
                             <applyToNonColonistFaction>true</applyToNonColonistFaction>
                             <applyToNonHumanlike>true</applyToNonHumanlike>
                         </li>

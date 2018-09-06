@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<ResearchProjectDef>
+	<!--ResearchProjectDef>
 		<defName>StackingI</defName>
 		<label>Stacking I</label>
 		<description>Learn how to sort and stack things properly, rather than dump it in a pile. This multiplies the stack limit globally (except corpses, weapons, uninstalled furniture and apparel) by 1.5. Like all others, these upgrades stack. (NOTE: This research is still unstable, and may cause issues. Please report all bugs to the discussion on my Ludeon/Steam page.)</description>
@@ -119,5 +119,5 @@
 				<repeatable>true</repeatable>
             </li>
 		</modExtensions>
-	</ResearchProjectDef>
+	</ResearchProjectDef-->
 </Defs>

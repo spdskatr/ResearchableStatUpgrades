@@ -133,12 +133,4 @@ namespace ResearchableStatUpgrades
             WorldComp.AddEditor(Editor, false);
         }
     }
-
-    public class ResearchMod_EditStackCounts : ResearchMod
-    {
-        public override void Apply()
-        {
-            RSUUtil.StackCountEditManager.RefreshResearches();
-        }
-    }
 }

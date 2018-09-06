@@ -20,14 +20,14 @@
         </value>
     </Operation>
     <Operation Class="PatchOperationAdd">
-        <xpath>/Defs/StatDef[defName="ShootingAccuracy"]</xpath>
+        <xpath>/Defs/StatDef[defName="ShootingAccuracyPawn"]</xpath>
         <value>
             <parts>
                 <li Class="ResearchableStatUpgrades.StatPart_ResearchDependent">
                     <researchFactors>
                         <li>
                             <def>CombatI</def>
-                            <factor>1.10</factor>
+                            <factor>1.05</factor>
                         </li>
                     </researchFactors>
                 </li>

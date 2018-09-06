@@ -8,19 +8,19 @@
                     <researchFactors>
                         <li>
                             <def>AdvMiningI</def>
-                            <factor>1.2</factor>
+                            <factor>1.1</factor>
                         </li>
                         <li>
                             <def>AdvMiningII</def>
-                            <factor>1.15</factor>
+                            <factor>1.075</factor>
                         </li>
                         <li>
                             <def>AdvMiningIII</def>
-                            <factor>1.15</factor>
+                            <factor>1.075</factor>
                         </li>
                         <li>
                             <def>AdvMiningIV</def>
-                            <factor>1.25</factor>
+                            <factor>1.125</factor>
                         </li>
                     </researchFactors>
                 </li>
@@ -35,11 +35,11 @@
                     <researchFactors>
                         <li>
                             <def>AdvMiningIII</def>
-                            <factor>1.15</factor>
+                            <factor>1.075</factor>
                         </li>
                         <li>
                             <def>AdvMiningIV</def>
-                            <factor>1.20</factor>
+                            <factor>1.1</factor>
                         </li>
                     </researchFactors>
                 </li>

@@ -4,7 +4,7 @@
 	<ResearchProjectDef>
 		<defName>Psychology</defName>
 		<label>psychology</label>
-		<description>Understand what prisoners are feeling. Recruit chance increased by 15%.</description>
+		<description>Negotiation ability increased by 7.5%. This affects the speed of prisoner recruitment, impact on faction relations when giving gifts, and the outcome of peace talks.</description>
 		<baseCost>1500</baseCost>
 		<techLevel>Industrial</techLevel>
         <tab>StatUpgrades</tab>
@@ -15,7 +15,7 @@
 	<ResearchProjectDef>
 		<defName>MeatCutCharts</defName>
 		<label>Meat Cut Charts</label>
-		<description>Learn how to butcher animals efficiently. Meat amount increased by 25%.</description>
+		<description>Learn how to butcher animals efficiently. Meat amount increased by 12.5%.</description>
 		<baseCost>4500</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>

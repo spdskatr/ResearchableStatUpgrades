@@ -8,11 +8,11 @@
                     <researchFactors>
                         <li>
                             <def>AnimalsI</def>
-                            <factor>1.1</factor>
+                            <factor>1.05</factor>
                         </li>
                         <li>
                             <def>AnimalsII</def>
-                            <factor>1.1</factor>
+                            <factor>1.05</factor>
                         </li>
                     </researchFactors>
                 </li>
@@ -27,11 +27,11 @@
                     <researchFactors>
                         <li>
                             <def>AnimalsI</def>
-                            <factor>1.05</factor>
+                            <factor>1.025</factor>
                         </li>
                         <li>
                             <def>AnimalsII</def>
-                            <factor>1.10</factor>
+                            <factor>1.5</factor>
                         </li>
                     </researchFactors>
                 </li>
@@ -50,11 +50,11 @@
                     <researchFactors>
                         <li>
                             <def>ConstructionI</def>
-                            <factor>1.1</factor>
+                            <factor>1.05</factor>
                         </li>
                         <li>
                             <def>ConstructionII</def>
-                            <factor>1.15</factor>
+                            <factor>1.075</factor>
                         </li>
                     </researchFactors>
                 </li>
@@ -69,7 +69,7 @@
                     <researchFactors>
                         <li>
                             <def>ConstructionII</def>
-                            <factor>1.10</factor>
+                            <factor>1.05</factor>
                         </li>
                     </researchFactors>
                 </li>
