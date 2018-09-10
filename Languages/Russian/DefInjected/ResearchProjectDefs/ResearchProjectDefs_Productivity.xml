@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ProductivityI.label>Продуктивность I</ProductivityI.label>
+  <ProductivityI.description>Есть немало вещей, которые колония может сделать для повышения производительности. Улучшает глобальную скорость работы на 5%.</ProductivityI.description>
+
+  <ProductivityII.label>Продуктивность II</ProductivityII.label>
+  <ProductivityII.description>Улучшает глобальную скорость работы на 5%.</ProductivityII.description>
+
+  <ProductivityIII.label>Продуктивность III</ProductivityIII.label>
+  <ProductivityIII.description>Улучшает глобальную скорость работы на 10%, а скорость передвижения - на 5%.</ProductivityIII.description>
+
+  <ProductivityIV.label>Продуктивность IV</ProductivityIV.label>
+  <ProductivityIV.description>Улучшает глобальную скорость работы на 10%, а скорость передвижения - на 10%.</ProductivityIV.description>
+
+  <ProductivityV.label>Продуктивность V</ProductivityV.label>
+  <ProductivityV.description>Улучшает глобальную скорость работы на 10%, а скорость передвижения - на 10%.</ProductivityV.description>
+
+  <ProductivityRepeatable.label>Продуктивность (повторяемое)</ProductivityRepeatable.label>
+  <ProductivityRepeatable.description>Каждый раз, когда вы исследуете это, глобальный коэффициент скорости работы будет увеличен на 1%, а скорость передвижения - на 1%. Это исследование повторяемо и будет увеличиваться в стоимости на 20% каждый раз, когда вы закончите его для баланса. Количество повторений этого исследования: 0</ProductivityRepeatable.description>
+
+</LanguageData>

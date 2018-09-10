@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <MedicalI.label>Медицина I</MedicalI.label>
+  <MedicalI.description>Скорость операции и ухода увеличились на 5%. Качество ухода и шанс успеха увеличились на 2,5%.</MedicalI.description>
+
+  <MedicalII.label>Медицина II</MedicalII.label>
+  <MedicalII.description>Скорость операции и ухода увеличились на 7,5%. Качество ухода и шанс успеха увеличились на 5%.</MedicalII.description>
+
+  <CombatI.label>Бой I</CombatI.label>
+  <CombatI.description>Точность стрельбы увеличен на 5%. Урон в ближнем и уклонение увеличены на 5%.</CombatI.description>
+
+  <CombatII.label>Бой II</CombatII.label>
+  <CombatII.description>Скорость прицелинвания увеличена на 5%. Урон в ближнем и уклонение увеличен на 5%.</CombatII.description>
+
+</LanguageData>

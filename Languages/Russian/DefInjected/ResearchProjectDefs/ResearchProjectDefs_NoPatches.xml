@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <NutrientResynthesis.label>Ресинтез питательных веществ</NutrientResynthesis.label>
+  <NutrientResynthesis.description>Раздатчики пасты потребляют на 16,7% меньше продовольствия на каждый полученный пищевой продукт. Старое исследование составило 10%, но изменение было бы слишком незначительным.</NutrientResynthesis.description>
+
+  <NutrientFlavoring.label>Питательный ароматизатор</NutrientFlavoring.label>
+  <NutrientFlavoring.description>Раздатчики пасты теперь производят искусственный ароматизатор, уменьшая дебафф настроения при еде на 2.</NutrientFlavoring.description>
+
+  <GunTurretCooling.label>Охлаждение пушки</GunTurretCooling.label>
+  <GunTurretCooling.description>Мини-турели стреляют четырьмя выстрестрелами в пачку вместо трех</GunTurretCooling.description>
+
+  <ScannerEfficiency.label>Эффективность сканера</ScannerEfficiency.label>
+  <ScannerEfficiency.description>Для обнаружения далекого ресурса сканер минералов дальнего действия занимает половину времени (15 дней). Тем не менее, их диапазон, следовательно, увеличивается до 45 плиток.</ScannerEfficiency.description>
+
+</LanguageData>
