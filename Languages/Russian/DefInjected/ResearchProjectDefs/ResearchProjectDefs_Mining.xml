@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <StatUpgrades.label>улучшение статов</StatUpgrades.label>
+
+  <AdvMiningI.label>Пневматические Кирки</AdvMiningI.label>
+  <AdvMiningI.description>Кирки шахтеров эффективнее на 10%. Называется Пневаматическими Кирками для ностальгии.</AdvMiningI.description>
+
+  <AdvMiningII.label>Расширенная добыча II</AdvMiningII.label>
+  <AdvMiningII.description>Дальнейшие улучшения в добыче полезных ископаемых - эффективность увеличена на 7,5%.</AdvMiningII.description>
+
+  <AdvMiningIII.label>Расширенная добыча III</AdvMiningIII.label>
+  <AdvMiningIII.description>Изучения в области электроники означают, что добыча шахтеров еще на 7,5% эффективнее и дает на 7,5% больше материалов на шахту.</AdvMiningIII.description>
+
+  <AdvMiningIV.label>Расширенная добыча IV</AdvMiningIV.label>
+  <AdvMiningIV.description>Дальнейшие усовершенствования в области точной добычи означают, что добыча шахтеров эффективна на 12,5% и дает на 10% больше материалов на шахту.</AdvMiningIV.description>
+
+</LanguageData>

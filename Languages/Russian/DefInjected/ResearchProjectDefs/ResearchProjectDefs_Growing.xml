@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AdvGrowingI.label>Эффективное сельское хозяйство I</AdvGrowingI.label>
+  <AdvGrowingI.description>Скорость работы посева увеличилось на 5%.</AdvGrowingI.description>
+
+  <AdvGrowingII.label>Эффективное сельское хозяйство II</AdvGrowingII.label>
+  <AdvGrowingII.description>Скорость работы посева увеличилось на 7,5%.</AdvGrowingII.description>
+
+  <AdvGrowingIII.label>Эффективное сельское хозяйство III</AdvGrowingIII.label>
+  <AdvGrowingIII.description>Скорость работы посева увеличилось на 7,5%. Шанс успешного сбора увеличился на 2,5%.</AdvGrowingIII.description>
+
+  <AdvGrowingIV.label>Эффективное сельское хозяйство IV</AdvGrowingIV.label>
+  <AdvGrowingIV.description>Скорость работы посева увеличилось на 12,5%. Шанс успешного сбора увеличился на 5%.</AdvGrowingIV.description>
+
+</LanguageData>
